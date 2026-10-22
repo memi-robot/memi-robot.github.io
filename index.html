@@ -834,7 +834,7 @@ code { font-size: max(14px, 0.86em); }
   <p><strong>Revise.</strong> An optimizer updates both prompts from \(d\phi\) and \(d\theta\), conditioning on the history of earlier prompts and their feedback, to produce \(\phi^{(k+1)}\) and \(\theta^{(k+1)}\). The new annotator prompt changes the memory annotations of the next iteration. The new policy prompt changes how the policy maintains and uses them.</p>
   <p>The entire loop runs offline on recorded demonstrations, without environment interaction. After \(K\) iterations, MEMI returns \(\phi^{(K)}\) and \(\theta^{(K)}\). The annotator is needed only during training. At deployment, the policy \(\pi_{\theta^{(K)}}\) starts from \(m_0\) and conditions on its own memory, using \(m_{t-1}\) in place of \(\tilde m_{t-1}\) in Eq. (1), and updates it as new observations arrive. Because the memory annotations are themselves learned, robot memory can self-improve beyond its initial supervision.</p>
   <figure class="f2" id="fig2">
-    <div class="f2-curve" id="f2-curve" role="img" aria-label="StopCube success with GPT-6 Luna: 34% initial on 50 test episodes, then 12%, 84%, 84% and 92% after iterations 1 to 4 on 25, and 94% optimized on 50."></div>
+    <div class="f2-curve" id="f2-curve" role="img" aria-label="StopCube success with GPT-6 Luna: 34% initial on 50 test episodes, then 12%, 84%, 84% and 92% after iterations 1 to 4 on 25, and 94% after iteration 5 on 50."></div>
     <div class="f2-status" id="f2-status" aria-live="polite"></div>
     <div class="f2-loop"><div class="f2-dia" role="img" aria-label="MEMI optimization loop. Forward: sample episodes, annotate memory with the annotator prompt ϕ, predict memory and subgoals with the high-level policy under the policy prompt θ, and check sufficiency, predictability and necessity. Backward: policy.backward critiques each failed step, annotator.backward merges the critiques into dϕ and dθ, and optimizer.step revises ϕ and θ.">
   <svg class="f2-links" aria-hidden="true"></svg>
@@ -1445,8 +1445,8 @@ code { font-size: max(14px, 0.86em); }
 (function () {
   var root = document.getElementById("fig2"); if (!root) return;
   var NS = "http://www.w3.org/2000/svg";
-  var LABELS = ["Initial", "Iteration 1", "Iteration 2", "Iteration 3", "Iteration 4", "Optimized"];
-  var SHORT_LABELS = ["Init", "It 1", "It 2", "It 3", "It 4", "Opt"];
+  var LABELS = ["Initial", "Iteration 1", "Iteration 2", "Iteration 3", "Iteration 4", "Iteration 5"];
+  var SHORT_LABELS = ["Init", "It 1", "It 2", "It 3", "It 4", "It 5"];
   var SUCC = [34, 12, 84, 84, 92, 94];                  // StopCube, GPT-6 Luna, after each round
   var FULL = [true, false, false, false, false, true];  // 50 test episodes; others 25
   var SUB = ["₀", "₁", "₂", "₃", "₄", "₅"];
@@ -1721,7 +1721,7 @@ code { font-size: max(14px, 0.86em); }
   function statusHTML(i) {
     var sc = scenes[i], r = sc.r, k = sc.k, head, body;
     if (r === 0) { head = "Initial"; body = "The initializer writes ϕ⁽⁰⁾ and θ⁽⁰⁾ from the training trajectories. The memory keeps " + PC + ", which counts how often the cube has crossed the target, and " + LS + ", the side of the target the cube was last seen on. StopCube success is 34% (50 test episodes)."; }
-    else if (k === 0) { head = r === 5 ? "After optimization" : "After iteration " + r; body = ROUND[r].s[0]; }
+    else if (k === 0) { head = "After iteration " + r; body = ROUND[r].s[0]; }
     else { head = "Iteration " + r + " · " + STEP_NAMES[k]; body = ROUND[r].s[k]; }
     return "<b>" + head + ".</b> " + body;
   }
