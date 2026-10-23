@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="MEMI: self-improving robot memory through inverse reasoning.">
-<title>MEMI: Self-Improving Robot Memory through Inverse Reasoning</title>
+<meta name="description" content="MEMI: self-improving robot memory as an inverse problem.">
+<title>MEMI: Self-Improving Robot Memory as an Inverse Problem</title>
 <script>document.documentElement.setAttribute("lang", "en");</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;700&amp;display=swap">
 <script>
@@ -658,7 +658,7 @@ code { font-size: max(14px, 0.86em); }
 <body>
 <main>
 <section class="hero">
-  <h1>MEMI: Self-Improving Robot Memory through Inverse Reasoning</h1>
+  <h1>MEMI: Self-Improving Robot Memory as an Inverse Problem</h1>
   <p class="authors"><a href="https://sooyoung-ryu.github.io/">Sooyoung Ryu</a>&nbsp;&nbsp; <a href="https://yinpeidai.github.io/">Yinpei Dai</a>&nbsp;&nbsp; <a href="https://yilundu.github.io/">Yilun Du</a>&nbsp;&nbsp; <a href="https://ai.stanford.edu/~cbfinn/">Chelsea Finn</a>&nbsp;&nbsp; <a href="https://yuejiangliu.github.io/">Yuejiang Liu</a></p>
   <div class="links"><a class="button" aria-disabled="true"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" fill-rule="evenodd"><path d="M4 0h6l4 4v10.5A1.5 1.5 0 0 1 12.5 16h-9A1.5 1.5 0 0 1 2 14.5v-13A1.5 1.5 0 0 1 3.5 0zM9.5 1.2V4.5h3.3zM5 8h6v1H5zm0 2.5h6v1H5zm0 2.5h4v1H5z"/></svg>arXiv</a> <a class="button" href="https://github.com/memi-robot/memi"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>Code</a> <a class="button" href="https://robomme.github.io/leaderboard.html"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"/></svg>Leaderboard</a> <a class="button" aria-disabled="true"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>Post</a></div>
 </section>
@@ -824,7 +824,7 @@ code { font-size: max(14px, 0.86em); }
   </figure>
   <figure class="algpy" id="alg1">
     <div class="algpy-box">
-      <div class="algpy-title"><b>Algorithm 1</b> MEMI: Self-Improving Robot Memory through Inverse Reasoning</div>
+      <div class="algpy-title"><b>Algorithm 1</b> MEMI: Self-Improving Robot Memory as an Inverse Problem</div>
       <div class="algpy-cols"><pre><span class="ln"><span class="no">1:</span><span class="k">def</span> <span class="f">memi</span>(E):                                    <span class="c"># E: episodes</span></span><span class="ln"><span class="no">2:</span>    annotator, policy = <span class="f">initialize</span>(E)           <span class="c"># initial prompts</span></span><span class="ln"><span class="no">3:</span>    optimizer = <span class="f">TextualSGD</span>([annotator.prompt, policy.prompt])</span><span class="ln"><span class="no">4:</span>    <span class="k">for</span> batch <span class="k">in</span> <span class="f">minibatches</span>(E):                <span class="c"># fresh minibatch</span></span><span class="ln st-s-ann st-top st-bot" style="border-radius: 4px"><span class="no">5:</span>        label = <span class="f">annotator</span>(batch)                <span class="c s-ann"># in hindsight</span></span><span class="ln st-s-eval st-top st-bot" style="border-radius: 4px"><span class="no">6:</span>        loss = <span class="f">evaluate</span>(policy, batch, label)   <span class="c s-eval"># Eqs. (3)–(6)</span></span><span class="ln st-s-rev st-top"><span class="no">7:</span>        loss.backward()                         <span class="c s-rev"># critique errors</span></span><span class="ln st-s-rev st-bot"><span class="no">8:</span>        optimizer.step()                        <span class="c s-rev"># revise prompts</span></span><span class="ln"><span class="no">9:</span>    <span class="k">return</span> annotator, policy</span></pre><pre><span class="ln"><span class="no">1:</span><span class="k">def</span> <span class="f">evaluate</span>(policy, batch, label):</span><span class="ln"><span class="no">2:</span>    loss, used = 0, <span class="f">set</span>()</span><span class="ln"><span class="no">3:</span>    <span class="k">for</span> q, o_curr, a_curr, m̃_prev, m̃_curr <span class="k">in</span> <span class="f">steps</span>(batch, label):</span><span class="ln"><span class="no">4:</span>        m_curr, â_curr, U_curr = <span class="f">policy</span>(q, o_curr, m̃_prev)</span><span class="ln"><span class="no">5:</span>        loss += <span class="f">dist</span>(â_curr, a_curr)   <span class="c"># sufficiency</span></span><span class="ln"><span class="no">6:</span>        loss += <span class="f">dist</span>(m_curr, m̃_curr)   <span class="c"># predictability</span></span><span class="ln"><span class="no">7:</span>        used |= U_curr</span><span class="ln"><span class="no">8:</span>    loss += <span class="f">len</span>(<span class="f">fields</span>(label) - used)  <span class="c"># necessity</span></span><span class="ln"><span class="no">9:</span>    <span class="k">return</span> loss</span></pre></div>
       <div class="algpy-legend"><code>annotator</code> is \(\alpha_\phi\), <code>policy</code> is \(\pi_\theta\), and <code>label</code> holds the annotated memories \(\tilde m\), on which the policy conditions during training. <code>TextualSGD</code> updates only the prompts \(\phi\) and \(\theta\).</div>
     </div>
@@ -1032,7 +1032,7 @@ code { font-size: max(14px, 0.86em); }
   <div class="bibtex">
     <button type="button" class="copy" id="copy-bib">Copy</button>
 <pre id="bib">@misc{ryu2026memi,
-  title        = {MEMI: Self-Improving Robot Memory through Inverse Reasoning},
+  title        = {MEMI: Self-Improving Robot Memory as an Inverse Problem},
   author       = {Ryu, Sooyoung and Dai, Yinpei and Du, Yilun and Finn, Chelsea and Liu, Yuejiang},
   year         = {2026},
   url          = {https://memi-robot.github.io/}
